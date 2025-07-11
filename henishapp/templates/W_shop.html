@@ -1,0 +1,282 @@
+{%extends "head.html"%}
+{% block start%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+         .product-img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+     .category-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .hero-section {
+      background: url(images/Urban\ Styles.avif);
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* dark overlay */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+    }
+    
+    .card img {
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .rating {
+      color: gold;
+      font-size: 1rem;
+    }
+    </style>
+</head>
+<body>
+<!--     
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">ClothStyle</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+     -->
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4"><b>Brand Products</b></h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <img src="{% static 'henishapp/images/h2.jpg' %}" class="img-fluid product-img" alt="Men's Jacket">
+        <h5 class="mt-2">Men's Jacket</h5>
+        <p>Stylish and warm for the season – $59.99</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="{% static 'henishapp/images/h22.avif' %}" class="img-fluid product-img" alt="Women's Dress">
+        <h5 class="mt-2">Women's Dress</h5>
+        <p>Elegant and chic evening wear – $49.99</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="{% static 'henishapp/images/h33.avif' %}" class="img-fluid product-img" alt="Kids T-shirt">
+        <h5 class="mt-2">Kids' T-Shirt</h5>
+        <p>Fun designs for the little ones – $19.99</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+
+
+  
+<div class="container my-5">
+  <h2 class="text-center mb-4"><b>Shop by Category</b></h2>
+  <div class="row text-center g-4">
+    <div class="col-md-4">
+       
+      <div class="card category-card ">
+        <img src="{% static 'henishapp/images/h5.avif' %}" class="card-img-top" alt="Men's">
+        <div class="card-body">
+          <h5 class="card-title">Men's</h5>
+          <a href="#" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card category-card">
+        <img src="{% static 'henishapp/images/h6.jpg' %}"  class="card-img-top" alt="Women">
+        <div class="card-body">
+          <h5 class="card-title">Women</h5>
+          <a href="#" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card category-card">
+        <img src="{% static 'henishapp/images/h77.jpg' %}" class="card-img-top" alt="Kids">
+        <div class="card-body">
+          <h5 class="card-title">Kids</h5>
+          <a href="#" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container my-5">
+  <h2 class="text-center mb-4">Premium Clothing Brand</h2>
+  <div class="row g-4">
+    
+
+
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'henishapp/images/w8.jpg' %}" class="card-img-top" alt="Hoodie">
+        <div class="card-body">
+          <h5 class="card-title">Urban Hoodie</h5>
+          <p class="card-text">$ 1600.00</p>
+          <p class="rating">★★★★★ (4.8)</p>
+          <a href="#" class="btn btn-dark w-100">View Product</a>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'henishapp/images/h10.jpg' %}" class="card-img-top" alt="Jacket">
+        <div class="card-body">
+          <h5 class="card-title">Leather Bomber Jacket</h5>
+          <p class="card-text">$ 1800.00</p>
+          <p class="rating">★★★★★ (4.9)</p>
+          <a href="#" class="btn btn-dark w-100">View Product</a>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'henishapp/images/h9.webp' %}" class="card-img-top" alt="Sneakers">
+        <div class="card-body">
+          <h5 class="card-title">Minimal Sneakers</h5>
+          <p class="card-text">$ 2500.00</p>
+          <p class="rating">★★★★☆ (4.5)</p>
+          <a href="#" class="btn btn-dark w-100">View Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+<!-- <footer class="bg-dark text-light pt-5 pb-4">
+  <div class="container text-md-left">
+    <div class="row text-md-left">
+
+      
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase fw-bold text-warning">TopStyle</h5>
+        <p>
+          Premium fashion crafted with elegance. Urban wear, timeless designs, and luxury fits.
+        </p>
+      </div>
+
+      
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Shop</h5>
+        <p><a href="#" class="text-light text-decoration-none">Men</a></p>
+        <p><a href="#" class="text-light text-decoration-none">Women</a></p>
+        <p><a href="#" class="text-light text-decoration-none">Kids</a></p>
+        <p><a href="#" class="text-light text-decoration-none">Accessories</a></p>
+      </div>
+
+      
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Support</h5>
+        <p><a href="#" class="text-light text-decoration-none">FAQ</a></p>
+        <p><a href="#" class="text-light text-decoration-none">Shipping & Returns</a></p>
+        <p><a href="#" class="text-light text-decoration-none">Contact Us</a></p>
+        <p><a href="#" class="text-light text-decoration-none">Privacy Policy</a></p>
+      </div>
+
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+        <p><i class="bi bi-geo-alt-fill me-2"></i> 123 Fashion Ave, New York, NY</p>
+        <p><i class="bi bi-envelope-fill me-2"></i> support@topstyle.com</p>
+        <p><i class="bi bi-phone-fill me-2"></i> +1 234 567 890</p>
+      </div>
+    </div>
+
+    <hr class="mb-4">
+
+
+    <div class="row align-items-center">
+      <div class="col-md-7 col-lg-8">
+        <p class="text-center text-md-start">© 2025 TopStyle. All rights reserved.</p>
+      </div>
+      <div class="col-md-5 col-lg-4">
+        <div class="text-center text-md-end">
+          <a href="#" class="text-light me-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light me-4"><i class="bi bi-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
+ {% endblock%}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <style>
+    /* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #1d2b64, #f8cdda);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login Container */
+.login-wrapper {
+  background-color: #ffffffcc;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 360px;
+  backdrop-filter: blur(10px);
+}
+
+/* Form Text */
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+.login-form p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Input Fields */
+.form-group {
+  margin-bottom: 15px;
+}
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.login-form input:focus {
+  background-color: #e6e6e6;
+  outline: 2px solid #4a90e2;
+}
+
+/* Submit Button */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.login-form button:hover { 
+  background-color: #357ABD;
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <form class="login-form"  method="POST">
+      {% csrf_token %}
+      <h2>Admin Panel</h2>
+      <p>Please log in to continue</p>
+      
+      <div class="form-group">
+        <input type="text" name="amd_name" placeholder="Username" required />
+      </div>
+      <div class="form-group">
+        <input type="password" name="amd_password" placeholder="Password" required/>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

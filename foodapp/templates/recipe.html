@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beautiful Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #grad {
+      background-image: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+
+    #grad2 {
+      background-image: linear-gradient(to right, #ff9966, #ff5e62);
+    }
+    body {
+      background: #f5f7fa;
+    }
+    .form-container {
+      max-width: 600px;
+      background: #ffffff;
+      padding: 30px;
+      margin: 50px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    } 
+
+    table{
+    
+      width: auto;
+    }
+    .form-title {
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .form-label {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .form-control {
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
+    }
+
+    table {
+      margin: 40px auto;
+      background: #f8fafc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #2575fc;
+      color: #fff;
+    }
+
+    td {
+      color: #333;
+    }
+    /* Add hover effect to table rows */
+    table tbody tr:hover {
+      background-color: #e3e9f7;
+      transition: background 0.2s;
+    }
+
+    /* Style for image preview in table */
+    td img {
+      max-width: 80px;
+      max-height: 60px;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    }
+
+    /* Responsive table */
+    @media (max-width: 768px) {
+      .form-container {
+        max-width: 95%;
+        padding: 15px;
+      }
+      table {
+        font-size: 14px;
+      }
+    }
+
+    /* Custom scrollbar for form container */
+    .form-container {
+      scrollbar-width: thin;
+      scrollbar-color: #2575fc #fff;
+    }
+    .form-container::-webkit-scrollbar {
+      width: 8px;
+    }
+    .form-container::-webkit-scrollbar-thumb {
+      background: #2575fc;
+      border-radius: 4px;
+    }
+
+  
+  </style>
+</head>
+<body id="grad">
+
+  <div class="form-container" id="grad2">
+    <h2 class="form-title">Submit Your Info</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" required>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="4" name="description" placeholder="Write a brief description" required></textarea>
+      </div>
+
+      <!-- Image Upload -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input class="form-control" type="file" id="image" accept="image/*" name="image" required>
+      </div>
+ 
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      </div>
+    </form>
+  </div>
+
+
+  <table border="2px" cellspacing="0", cellpadding="10" > 
+        <tr>
+            <th>NO</th>
+            <th>name</th>
+            <th>description</th>
+            <th>image</th>
+            <th>delete</th>
+            <th>update</th>
+            
+        </tr>
+        {% for table in tables%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{table.name}}</td>         
+            <td>{{table.description}}</td>
+            <td>
+              <img src="/media/{{table.image}}" alt="img" style="width: 100px; height: 100px; border-radius: 10px;">
+            </td>
+
+          <td>
+              <form method="POST" action="{% url 'delete_recipe' table.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm"
+                onclick="return confirm('are you sure want ti delete this recipe?')">
+              <i class="bi bi-trash"></i>delete</button>
+          </td>
+            <td>
+                <a href="/food/update_recipe/{{table.id}} " class="btn btn-warning btn-sm">
+                  <i class="bi bi-pencil-square"></i> Update
+                  </a>
+            </td>
+      <td>
+
+
+
+           
+             
+             
+          
+
+        </tr>
+        {%endfor%}
+
+    </table>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

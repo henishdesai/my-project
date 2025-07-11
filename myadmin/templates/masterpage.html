@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" 
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+    }
+
+    /* Header */
+    .admin-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #000;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    .admin-header .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .admin-header .user-info {
+      font-size: 14px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 220px;
+      height: calc(100% - 60px);
+      background-color: #fff;
+      color: black;
+      padding-top: 20px;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+    }
+    .sidebar nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .sidebar nav ul li {
+      margin-bottom: 10px;
+    }
+    .sidebar nav ul li a {
+      display: block;
+      color: #000000;
+      text-decoration: none;
+      padding: 14px 24px;
+      font-size: 16px;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .sidebar nav ul li a:hover {
+      background-color: #3c5975;
+      border-left: 4px solid #1abc9c;
+      color: #ffffff;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 220px;
+      padding: 80px 40px 30px;
+      background-color: #f9f9f9;
+      min-height: calc(100vh - 60px);
+    }
+    .main-content h1 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      font-size: 28px;
+    }
+    .main-content p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Optional Responsiveness */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 180px;
+      }
+      .main-content {
+        margin-left: 180px;
+        padding: 80px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="logo">⚙️ Admin Panel</div>
+    <a href="/myadmin/logins/" class="text-white text-decoration-none"><h3 class="text-white"> 👤{{request.session.name}}</h3></a>
+    <!-- <div class="user-info">👤 Welcome, Admin</div> -->
+  </header>
+
+  <!-- 
+  <div id="sidebar" class="d-none d-md-block bg-dark mt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active text-white" href="/myadmin/dashboard/"><i class="bi bi-house-door-fill me-2"></i>Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/myadmin/user/"><i class="bi bi-people-fill me-2"></i>Users</a></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/myadmin/settings/"> <i class="bi bi-gear-fill me-2"></i>Settings</a>
+      </li>
+       -->
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="/myadmin/dashboard/">📊 Dashboard</a></li>
+        <li><a href="/myadmin/user/">👥 Users</a></li>
+        <li><a href="/myadmin/category/"><i class="fa-solid fa-layer-group"></i> catagory</a></li>
+        <li><a href="/myadmin/setting/">⚙️ Settings</a></li>
+    
+        <li><a href="/myadmin/logout">🚪 Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    {% block start %}
+    {% endblock %}
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+    </style>
+</head>
+<body>
+    
+
+    <table border="2px" cellspacing="0" cellpadding="10" >
+
+        <tr>
+            <th>no</th>
+            <th>name</th>
+            <th>age</th>
+            <th>vote</th>
+        </tr>
+
+        {% for people in  peoples%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td> {{people.name}} </td>
+            <td> {{people.age}} </td>
+            <td style="background-color: {% if people.age >= 18%}lightgreen{% else %}lightcoral{% endif %};">
+                {% if people.age >= 18 %}
+                👍
+                {% else %}
+                👎🚩
+                {% endif %}
+
+            </td>>
+        
+        </tr>
+
+
+        {% endfor %} 
+
+    </table> 
+<!-- 
+    <table border="2px" cellspacing="0", cellpadding="10"> 
+        <tr>
+            <th>NO</th>
+            <th>product</th>
+            <th>price</th>
+            <th>category</th>
+            
+        </tr>
+        {% for table in tables%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{table.name}}</td>         
+            <td>{{table.price}}</td>
+            <td>{%if table.price >= 10000%}
+                high
+                {%else%}
+                Low
+                {%endif%}
+            </td>
+
+        </tr>
+        {%endfor%}
+
+    </table> -->
+</body>
+</html>

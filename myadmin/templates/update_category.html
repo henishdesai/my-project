@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Category</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background: #fff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+    color: #333;
+}
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #444;
+}
+form input[type="text"],
+form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.checkbox-group {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.checkbox-group label {
+    display: inline;
+    margin-left: 5px;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.2s;
+}
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Category</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="name">Category Name:</label>
+            <input type="text" value="{{data.catName}}" id="name" name="catName" required>
+
+            <label for="image">Category Image:</label>
+            <input type="file" id="image" name="catImage" accept="image/*">
+
+            <label for="slug">Category Slug:</label>
+            <input type="text" id="slug" name="catSlug" value="{{data.catSlug}}" required>
+
+
+            <label for="status">Category Status:</label>
+            
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="active" name="catStatus" {% if data.catStatus %} checked {% endif %}>
+                <label for="active">Active</label>
+            </div>
+            <button type="submit">Add Category</button>
+        </form>
+    </div>
+</body>
+</html>
